@@ -1,2 +1,1 @@
-# Do-stlik
-# Do-stlik
+# Do'stlik
