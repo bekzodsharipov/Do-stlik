@@ -1,1 +1,51 @@
-@font-face { font-family: FindSans Pro Regular; src: url(../fonts/FindSansPro-Regular-subset-AZa-z09-symbols.ttf); font-display: swap; font-weight: 400; } @font-face { font-family: FindSans Pro Regular; src: url(../fonts/FindSansPro-Bold-subset-AZa-z09-symbols.ttf); font-display: swap; font-weight: 700; } @font-face { font-family: Poppins; src: url(../fonts/Poppins-Bold-subset-AZa-z09-symbols.ttf); font-display: swap; font-weight: 700; } @font-face { font-family: Poppins; src: url(../fonts/Poppins-Subset.woff2); font-display: swap; font-weight: 400; } .bg { position: absolute; inset: 0; opacity: 0.4; z-index: -1; pointer-events: none; width: 100%; height: 100%; object-fit: cover; } @media (min-width: 500px) { .bg { display: none; } }
+@font-face {
+    font-family: FindSans Pro Regular;
+    src: url(../fonts/FindSansPro-Regular-subset-AZa-z09-symbols.ttf);
+    font-display: swap;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: FindSans Pro Regular;
+    src: url(../fonts/FindSansPro-Bold-subset-AZa-z09-symbols.ttf);
+    font-display: swap;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(../fonts/Poppins-Bold-subset-AZa-z09-symbols.ttf);
+    font-display: swap;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(../fonts/Poppins-Subset.woff2);
+    font-display: swap;
+    font-weight: 400;
+}
+
+.bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (min-width: 500px) {
+    .bg {
+        display: none;
+    }
+}
+
+@media (max-width:340px) {
+    .HomeFormBtn {
+        font-size: 13px;
+        padding: 20px 10px;
+    }
+}
