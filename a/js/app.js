@@ -1,1 +1,259 @@
-document.addEventListener("DOMContentLoaded",(function(){const e=document.querySelector(".carousel");setTimeout((()=>{e.innerHTML='\n      <div class="carousel__track" id="carouselTrack">\n          <img src="./images/house1.avif" alt="carusel img" class="carousel__img" width="306" height="174" loading="lazy" decoding="async">\n          <img src="./images/house2.avif" alt="carusel img" class="carousel__img" width="306" height="174" loading="lazy" decoding="async">\n          <img src="./images/house1.avif" alt="carusel img" class="carousel__img" width="306" height="174" loading="lazy" decoding="async">\n          <img src="./images/house2.avif" alt="carusel img" class="carousel__img" width="306" height="174" loading="lazy" decoding="async">\n          <img src="./images/house1.avif" alt="carusel img" class="carousel__img" width="306" height="174" loading="lazy" decoding="async">\n        </div>\n      '}),1000)})),document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("registrationForm"),t=document.getElementById("name"),n=document.getElementById("phone"),l=document.getElementById("city"),a=document.getElementById("nameError"),i=document.getElementById("phoneError"),s=document.getElementById("cityError"),o=document.getElementById("selectedCountryCode"),d=document.getElementById("countryDropdown"),c=document.getElementById("dropdownIcon"),r=[{name:"Uzbekistan",code:"+998"},{name:"AQSH",code:"+1"},{name:"Janubiy Koreya",code:"+82"},{name:"Qirg’iziston",code:"+996"},{name:"Qozog’iston",code:"+7"},{name:"Tojikiston",code:"+992"},{name:"Turkmaniston",code:"+993"},{name:"Polsha",code:"+48"}],g={"+998":{placeholder:"88 888 88 88",format:e=>{let t="";return e.length>=1&&(t+=e.slice(0,2)),e.length>=3&&(t+=" "+e.slice(2,5)),e.length>=6&&(t+=" "+e.slice(5,7)),e.length>=8&&(t+=" "+e.slice(7,9)),t},validate:e=>/^\d{2} \d{3} \d{2} \d{2}$/.test(e),maxDigits:9,maxLength:12},"+1":{placeholder:"555 123 4567",format:e=>{let t="";return e.length>=1&&(t+=e.slice(0,3)),e.length>=4&&(t+=" "+e.slice(3,6)),e.length>=7&&(t+=" "+e.slice(6,10)),t},validate:e=>/^\d{3} \d{3} \d{4}$/.test(e),maxDigits:10,maxLength:12},"+82":{placeholder:"10 1234 5678",format:e=>{let t="";return e.length>=1&&(t+=e.slice(0,2)),e.length>=3&&(t+=" "+e.slice(2,6)),e.length>=7&&(t+=" "+e.slice(6,10)),t},validate:e=>/^\d{2} \d{4} \d{4}$/.test(e),maxDigits:10,maxLength:12},"+996":{placeholder:"555 123 456",format:e=>{let t="";return e.length>=1&&(t+=e.slice(0,3)),e.length>=4&&(t+=" "+e.slice(3,6)),e.length>=7&&(t+=" "+e.slice(6,9)),t},validate:e=>/^\d{3} \d{3} \d{3}$/.test(e),maxDigits:9,maxLength:11},"+7":{placeholder:"700 123 4567",format:e=>{let t="";return e.length>=1&&(t+=e.slice(0,3)),e.length>=4&&(t+=" "+e.slice(3,6)),e.length>=7&&(t+=" "+e.slice(6,10)),t},validate:e=>/^\d{3} \d{3} \d{4}$/.test(e),maxDigits:10,maxLength:12},"+992":{placeholder:"55 555 5555",format:e=>{let t="";return e.length>=1&&(t+=e.slice(0,2)),e.length>=3&&(t+=" "+e.slice(2,5)),e.length>=6&&(t+=" "+e.slice(5,9)),t},validate:e=>/^\d{2} \d{3} \d{4}$/.test(e),maxDigits:9,maxLength:11},"+993":{placeholder:"6 123 4567",format:e=>{let t="";return e.length>=1&&(t+=e.slice(0,1)),e.length>=2&&(t+=" "+e.slice(1,4)),e.length>=5&&(t+=" "+e.slice(4,8)),t},validate:e=>/^\d{1} \d{3} \d{4}$/.test(e),maxDigits:8,maxLength:10},"+48":{placeholder:"123 456 789",format:e=>{let t="";return e.length>=1&&(t+=e.slice(0,3)),e.length>=4&&(t+=" "+e.slice(3,6)),e.length>=7&&(t+=" "+e.slice(6,9)),t},validate:e=>/^\d{3} \d{3} \d{3}$/.test(e),maxDigits:9,maxLength:11}};let m="+998";function u(){const e=new Date;return`${String(e.getDate()).padStart(2,"0")}-${String(e.getMonth()+1).padStart(2,"0")}-${e.getFullYear()}`}function h(){return(new Date).toLocaleTimeString("uz-UZ")}n.setAttribute("maxlength",g[m].maxLength),n.placeholder=g[m].placeholder,o.addEventListener("click",(()=>{const e="block"===d.style.display;d.style.display=e?"none":"block",c.innerHTML=e?'<polyline points="6 9 12 15 18 9"></polyline>':'<polyline points="18 15 12 9 6 15"></polyline>',e||(d.innerHTML="",r.forEach((e=>{const t=document.createElement("div");t.className="country-option",t.innerHTML=`<span>${e.name}</span><span class="country-code">${e.code}</span>`,t.addEventListener("click",(()=>{m=e.code,o.textContent=e.code,d.style.display="none",n.placeholder=g[e.code].placeholder,n.setAttribute("maxlength",g[e.code].maxLength),n.value="",i.style.display="none",c.innerHTML='<polyline points="6 9 12 15 18 9"></polyline>'})),d.appendChild(t)})))})),document.addEventListener("click",(e=>{o.contains(e.target)||d.contains(e.target)||(d.style.display="none",c.innerHTML='<polyline points="6 9 12 15 18 9"></polyline>')})),n.addEventListener("input",(e=>{n.value=function(e,t){const n=e.replace(/\D/g,""),l=g[t]||g["+998"],a=n.slice(0,l.maxDigits);return l.format(a)}(e.target.value,m),i.style.display="none"})),t.addEventListener("input",(()=>{a.style.display="none"}));const y=/[^A-Za-zА-Яа-яЁёİıĞğŞşÜüÖöÇçʼ'’ -]/g;l.addEventListener("input",(()=>{l.value=l.value.replace(y,""),l.value=l.value.replace(/\s{2,}/g," "),s.style.display="none"})),e.addEventListener("submit",(async function(e){if(e.preventDefault(),!t.value.trim())return a.style.display="block",i.style.display="none",s.style.display="none",void t.focus();if(!g[m].validate(n.value))return i.style.display="block",a.style.display="none",s.style.display="none",void n.focus();const o=l.value.trim();if(!o||o.length<2)return s.style.display="block",a.style.display="none",i.style.display="none",void l.focus();a.style.display="none",i.style.display="none",s.style.display="none";const d=new URLSearchParams;d.append("Ism",t.value.trim()),d.append("Telefon raqam",`${m} ${n.value}`),d.append("Shahar/Tuman",o),d.append("Royhatdan o'tgan vaqti",`${u()}-${h()}`);const c={name:t.value.trim(),phone:`${m} ${n.value}`,city:o,time:`${u()}-${h()}`};localStorage.setItem("FormData",JSON.stringify(c)),window.location.href="/thankYou.html"}))}));
+document.addEventListener("DOMContentLoaded", function () {
+    const e = document.getElementById("registrationForm"),
+      t = document.getElementById("name"),
+      n = document.getElementById("phone"),
+      l = document.getElementById("city"),
+      a = document.getElementById("nameError"),
+      i = document.getElementById("phoneError"),
+      s = document.getElementById("cityError"),
+      o = document.getElementById("selectedCountryCode"),
+      d = document.getElementById("countryDropdown"),
+      c = document.getElementById("dropdownIcon"),
+      r = [
+        { name: "Uzbekistan", code: "+998" },
+        { name: "AQSH", code: "+1" },
+        { name: "Janubiy Koreya", code: "+82" },
+        { name: "Qirg’iziston", code: "+996" },
+        { name: "Qozog’iston", code: "+7" },
+        { name: "Tojikiston", code: "+992" },
+        { name: "Turkmaniston", code: "+993" },
+        { name: "Polsha", code: "+48" },
+      ],
+      g = {
+        "+998": {
+          placeholder: "88 888 88 88",
+          format: (e) => {
+            let t = "";
+            return (
+              e.length >= 1 && (t += e.slice(0, 2)),
+              e.length >= 3 && (t += " " + e.slice(2, 5)),
+              e.length >= 6 && (t += " " + e.slice(5, 7)),
+              e.length >= 8 && (t += " " + e.slice(7, 9)),
+              t
+            );
+          },
+          validate: (e) => /^\d{2} \d{3} \d{2} \d{2}$/.test(e),
+          maxDigits: 9,
+          maxLength: 12,
+        },
+        "+1": {
+          placeholder: "555 123 4567",
+          format: (e) => {
+            let t = "";
+            return (
+              e.length >= 1 && (t += e.slice(0, 3)),
+              e.length >= 4 && (t += " " + e.slice(3, 6)),
+              e.length >= 7 && (t += " " + e.slice(6, 10)),
+              t
+            );
+          },
+          validate: (e) => /^\d{3} \d{3} \d{4}$/.test(e),
+          maxDigits: 10,
+          maxLength: 12,
+        },
+        "+82": {
+          placeholder: "10 1234 5678",
+          format: (e) => {
+            let t = "";
+            return (
+              e.length >= 1 && (t += e.slice(0, 2)),
+              e.length >= 3 && (t += " " + e.slice(2, 6)),
+              e.length >= 7 && (t += " " + e.slice(6, 10)),
+              t
+            );
+          },
+          validate: (e) => /^\d{2} \d{4} \d{4}$/.test(e),
+          maxDigits: 10,
+          maxLength: 12,
+        },
+        "+996": {
+          placeholder: "555 123 456",
+          format: (e) => {
+            let t = "";
+            return (
+              e.length >= 1 && (t += e.slice(0, 3)),
+              e.length >= 4 && (t += " " + e.slice(3, 6)),
+              e.length >= 7 && (t += " " + e.slice(6, 9)),
+              t
+            );
+          },
+          validate: (e) => /^\d{3} \d{3} \d{3}$/.test(e),
+          maxDigits: 9,
+          maxLength: 11,
+        },
+        "+7": {
+          placeholder: "700 123 4567",
+          format: (e) => {
+            let t = "";
+            return (
+              e.length >= 1 && (t += e.slice(0, 3)),
+              e.length >= 4 && (t += " " + e.slice(3, 6)),
+              e.length >= 7 && (t += " " + e.slice(6, 10)),
+              t
+            );
+          },
+          validate: (e) => /^\d{3} \d{3} \d{4}$/.test(e),
+          maxDigits: 10,
+          maxLength: 12,
+        },
+        "+992": {
+          placeholder: "55 555 5555",
+          format: (e) => {
+            let t = "";
+            return (
+              e.length >= 1 && (t += e.slice(0, 2)),
+              e.length >= 3 && (t += " " + e.slice(2, 5)),
+              e.length >= 6 && (t += " " + e.slice(5, 9)),
+              t
+            );
+          },
+          validate: (e) => /^\d{2} \d{3} \d{4}$/.test(e),
+          maxDigits: 9,
+          maxLength: 11,
+        },
+        "+993": {
+          placeholder: "6 123 4567",
+          format: (e) => {
+            let t = "";
+            return (
+              e.length >= 1 && (t += e.slice(0, 1)),
+              e.length >= 2 && (t += " " + e.slice(1, 4)),
+              e.length >= 5 && (t += " " + e.slice(4, 8)),
+              t
+            );
+          },
+          validate: (e) => /^\d{1} \d{3} \d{4}$/.test(e),
+          maxDigits: 8,
+          maxLength: 10,
+        },
+        "+48": {
+          placeholder: "123 456 789",
+          format: (e) => {
+            let t = "";
+            return (
+              e.length >= 1 && (t += e.slice(0, 3)),
+              e.length >= 4 && (t += " " + e.slice(3, 6)),
+              e.length >= 7 && (t += " " + e.slice(6, 9)),
+              t
+            );
+          },
+          validate: (e) => /^\d{3} \d{3} \d{3}$/.test(e),
+          maxDigits: 9,
+          maxLength: 11,
+        },
+      };
+  
+    let m = "+998";
+  
+    function u() {
+      const e = new Date();
+      return `${String(e.getDate()).padStart(2, "0")}-${String(
+        e.getMonth() + 1
+      ).padStart(2, "0")}-${e.getFullYear()}`;
+    }
+  
+    function h() {
+      return new Date().toLocaleTimeString("uz-UZ");
+    }
+  
+    n.setAttribute("maxlength", g[m].maxLength);
+    n.placeholder = g[m].placeholder;
+  
+    o.addEventListener("click", () => {
+      const e = "block" === d.style.display;
+      d.style.display = e ? "none" : "block";
+      c.innerHTML = e
+        ? '<polyline points="6 9 12 15 18 9"></polyline>'
+        : '<polyline points="18 15 12 9 6 15"></polyline>';
+      if (!e) {
+        d.innerHTML = "";
+        r.forEach((e) => {
+          const t = document.createElement("div");
+          t.className = "country-option";
+          t.innerHTML = `<span>${e.name}</span><span class="country-code">${e.code}</span>`;
+          t.addEventListener("click", () => {
+            m = e.code;
+            o.textContent = e.code;
+            d.style.display = "none";
+            n.placeholder = g[e.code].placeholder;
+            n.setAttribute("maxlength", g[e.code].maxLength);
+            n.value = "";
+            i.style.display = "none";
+            c.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
+          });
+          d.appendChild(t);
+        });
+      }
+    });
+  
+    document.addEventListener("click", (e) => {
+      if (!o.contains(e.target) && !d.contains(e.target)) {
+        d.style.display = "none";
+        c.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
+      }
+    });
+  
+    n.addEventListener("input", (e) => {
+      n.value = (function (e, t) {
+        const n = e.replace(/\D/g, ""),
+          l = g[t] || g["+998"],
+          a = n.slice(0, l.maxDigits);
+        return l.format(a);
+      })(e.target.value, m);
+      i.style.display = "none";
+    });
+  
+    t.addEventListener("input", () => {
+      a.style.display = "none";
+    });
+  
+    const y = /[^A-Za-zА-Яа-яЁёİıĞğŞşÜüÖöÇçʼ'’ -]/g;
+    l.addEventListener("input", () => {
+      l.value = l.value.replace(y, "");
+      l.value = l.value.replace(/\s{2,}/g, " ");
+      s.style.display = "none";
+    });
+  
+    e.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      if (!t.value.trim())
+        return (
+          (a.style.display = "block"),
+          (i.style.display = "none"),
+          (s.style.display = "none"),
+          void t.focus()
+        );
+      if (!g[m].validate(n.value))
+        return (
+          (i.style.display = "block"),
+          (a.style.display = "none"),
+          (s.style.display = "none"),
+          void n.focus()
+        );
+      const o = l.value.trim();
+      if (!o || o.length < 2)
+        return (
+          (s.style.display = "block"),
+          (a.style.display = "none"),
+          (i.style.display = "none"),
+          void l.focus()
+        );
+      (a.style.display = "none"),
+        (i.style.display = "none"),
+        (s.style.display = "none");
+      const d = new URLSearchParams();
+      d.append("Ism", t.value.trim());
+      d.append("Telefon raqam", `${m} ${n.value}`);
+      d.append("Shahar/Tuman", o);
+      d.append("Royhatdan o'tgan vaqti", `${u()}-${h()}`);
+      const c = {
+        name: t.value.trim(),
+        phone: `${m} ${n.value}`,
+        city: o,
+        time: `${u()}-${h()}`,
+      };
+      localStorage.setItem("FormData", JSON.stringify(c));
+      window.location.href = "/thankYou.html";
+    });
+  });
+  
